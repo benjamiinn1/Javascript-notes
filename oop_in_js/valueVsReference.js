@@ -1,5 +1,7 @@
 // Primitives are copied by their value
+// Primitives: Number, String, Boolean, Symbol, undefined, null
 // Objects are copied by their reference
+// Objects: Object, Function, Array
 
 // In this example we are using a primitive type. Y is a copy not a reference to x.
 let x = 10;
