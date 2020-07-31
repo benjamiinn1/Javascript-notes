@@ -19,7 +19,7 @@ function Stopwatch() {
   this.stop = () => {
     if (!running) throw new Error("Stopwatch is not running!");
     running = false;
-    duration = Date.now() / 1000 - startTime;
+    duration = duration + Date.now() / 1000 - startTime;
   };
   Object.defineProperty(this, "duration", {
     get: () => {
@@ -40,5 +40,12 @@ function Stopwatch() {
 const constructorStopwatch = new Stopwatch();
 constructorStopwatch.start();
 setTimeout(() => {
-  constructorStopwatch.stop(), console.log(constructorStopwatch.duration);
+  constructorStopwatch.stop(),
+    console.log(constructorStopwatch.duration),
+    setTimeout(() => {
+      constructorStopwatch.start();
+    }, 2000);
+  setTimeout(() => {
+    constructorStopwatch.stop(), console.log(constructorStopwatch.duration);
+  }, 4000);
 }, 3000);
